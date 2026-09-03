@@ -1,8 +1,11 @@
 /**
- * Best-effort in-memory limiter. Serverless instances are not shared, so this
- * blunts casual repeat submissions rather than guaranteeing a global limit —
- * which, combined with the honeypot, is the right amount of friction for a
- * local gym's enquiry form.
+ * Best-effort in-memory limiter, per serverless instance.
+ *
+ * It is deliberately not a global guarantee: instances do not share memory, so
+ * a determined flood spread across instances gets through. It is the cheap first
+ * line. The honeypot rejects naive bots, and /api/enquiry additionally checks
+ * shared state in Postgres for a repeat of the same phone number, which is what
+ * actually catches a double-tapped submit button.
  */
 const hits = new Map<string, number[]>();
 const WINDOW_MS = 10 * 60 * 1000;

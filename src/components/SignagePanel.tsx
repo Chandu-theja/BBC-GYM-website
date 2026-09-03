@@ -50,10 +50,7 @@ export function SignagePanel({ className = "", variant = "full" }: Props) {
 
       {variant === "disciplines" ? (
         <div className="relative px-6 py-8 sm:px-10 sm:py-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-smoke">
-            Painted on the wall outside
-          </p>
-          <ul className="mt-5 flex flex-wrap items-baseline gap-x-8 gap-y-3 sm:gap-x-12">
+          <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-3 sm:gap-x-12">
             {disciplines.map((d) => (
               <li
                 key={d.label}

@@ -31,6 +31,8 @@ export default function PricingPage() {
           </p>
         )}
 
+        {/* The plan cards are h3; without this the page jumps h1 -> h3. */}
+        <h2 className="sr-only">Membership plans</h2>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {plans.map((plan) => (
             <PriceCard key={plan.name} plan={plan} />

@@ -26,6 +26,16 @@ export async function POST(request: Request) {
     const sql = getSql();
     if (!sql) return NextResponse.json({ stored: false, reason: "no-database" });
 
+    // The in-memory limiter above is per-instance, so it cannot catch a repeat
+    // that lands on a different serverless instance. This check is shared state
+    // and does catch it — mainly a double-tap on the submit button.
+    const recent = (await sql`
+      select 1 from enquiries
+      where phone = ${phone} and created_at > now() - interval '60 seconds'
+      limit 1
+    `) as unknown[];
+    if (recent.length > 0) return NextResponse.json({ stored: false, reason: "duplicate" });
+
     await sql`
       insert into enquiries (name, phone, program, goal, message)
       values (${name}, ${phone}, ${program || null}, ${goal || null}, ${message || null})
