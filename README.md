@@ -89,10 +89,30 @@ Copy `.env.example` to `.env.local`:
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `DATABASE_URL` | no | Neon Postgres connection string. Without it the enquiry form falls back to a prefilled WhatsApp handoff instead of failing. |
+| `DATABASE_URL` | no | Neon Postgres. Provisioned via `vercel integration add neon`; `vercel env pull` writes it locally. Without it the WhatsApp handoff still works and `/api/enquiry` reports `{"stored": false, "reason": "no-database"}`. |
 | `ADMIN_PASSWORD` | for `/admin/enquiries` | Gates the lead inbox. |
 
-Run `schema.sql` once against the database to create the `enquiries` table.
+The `enquiries` table and its index already exist. `schema.sql` is idempotent if you ever need to
+recreate them on a fresh database.
+
+## Production
+
+- **Security headers** are set in `next.config.ts` for every route: CSP (with `frame-src` scoped to
+  google.com for the map and `form-action` allowing the WhatsApp handoff), HSTS, `nosniff`,
+  `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`. `x-powered-by` is off. If you add a
+  third-party script or embed, it will be blocked until you add its origin to the CSP.
+- `/admin` and `/api` send `no-store`; `/brand` assets are `immutable`.
+- `error.tsx` and `global-error.tsx` both surface the phone number — a broken page on a gym site
+  should still convert.
+- **Duplicate guard:** the same phone number within 60 seconds is rejected in Postgres. The
+  in-memory IP limiter is per-instance and cannot catch a double-tapped submit landing on another
+  instance; shared state can.
+- Accessibility: every page has one `h1`, correct heading order, labelled inputs, alt text on all
+  images, no empty links or buttons, no duplicate ids.
+
+**Deploys are CLI-only** (`npx vercel --prod`). `vercel git connect` fails because the GitHub app
+is not authorised for this repo on the `dharsangroups` team — authorise it in the Vercel dashboard
+and pushes to `main` will deploy automatically.
 
 ## Enquiry flow
 
