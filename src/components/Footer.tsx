@@ -72,7 +72,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>
-          <p className="font-telugu">{site.taglineTe}</p>
+          <p>{fullAddress}</p>
         </div>
       </div>
     </footer>

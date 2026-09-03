@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { SignagePanel } from "./SignagePanel";
 import { site } from "@/data/site";
 
 export function Hero() {
@@ -34,7 +34,6 @@ export function Hero() {
           aerobics and one-to-one coaching — open {formatShort(site.hours.opens)} to{" "}
           {formatShort(site.hours.closes)}, seven days.
         </p>
-        <p className="font-telugu mt-3 text-base text-smoke/80">{site.taglineTe}</p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <Link
@@ -52,26 +51,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* The signage wall, presented as an exhibit rather than a stretched backdrop —
-          the source photo is low resolution, so it is framed and colour-graded
-          instead of being blown up full-bleed. */}
       <div className="relative mx-auto max-w-6xl px-5 pb-16 sm:pb-20">
-        <div className="relative overflow-hidden rounded-xl border border-ink-line">
-          <Image
-            src="/images/signage-wall.png"
-            alt="The BBC Bouncers Gym signage wall on Karakambadi Road, listing Ladies & Gents, Zumba Dance, Aerobics and CrossFit"
-            width={996}
-            height={336}
-            priority
-            sizes="(max-width: 1152px) 100vw, 1088px"
-            className="w-full contrast-[1.15] saturate-[1.2]"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-            style={{ background: "linear-gradient(to top, rgba(11,11,12,0.85), transparent 55%)" }}
-          />
-        </div>
+        <SignagePanel variant="disciplines" />
       </div>
     </section>
   );

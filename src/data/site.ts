@@ -11,7 +11,6 @@ export const site = {
   shortName: "BBC Bouncers",
   legalName: "BBC Fitness Centre",
   tagline: "Tirupati's strongest training floor.",
-  taglineTe: "తిరుపతిలో బలమైన శిక్షణ కేంద్రం",
   description:
     "Ladies & gents gym in Akkarampalli, Tirupati — strength training, CrossFit, Zumba, aerobics and personal coaching on Karakambadi Road. Rated 4.9 by 166 members.",
 

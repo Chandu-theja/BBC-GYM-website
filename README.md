@@ -28,7 +28,17 @@ per-program category accents, which is exactly what the physical signage does. A
 colours anywhere else breaks the system.
 
 The BBC mark lives in `src/components/BbcLogo.tsx` as vector, redrawn from the printed card so
-it stays crisp at any size. There is no bitmap logo asset.
+it stays crisp at any size. There is no bitmap logo asset anywhere in this repo.
+
+The **letterforms are drawn paths, not `<text>`**. An earlier version set B-B-C in the display
+webfont, which meant the logo silently changed shape whenever that font failed to load. It now
+renders identically with no fonts available at all. Three variants: `glyph` (flame + triangle,
+for favicons and anything under ~40px), `mark`, and `lockup`. `src/app/icon.svg` is the glyph.
+
+`src/components/SignagePanel.tsx` is a typographic recreation of the signage wall on Karakambadi
+Road, replacing a low-resolution photograph of it. `variant="full"` reproduces the whole sign;
+`variant="disciplines"` drops the name so it can sit under the hero heading without repeating
+"Bouncers Gym" twice on one screen.
 
 ## Business data
 
@@ -83,8 +93,9 @@ These are deliberately visible in the UI rather than filled with invented values
       `tier: "junior"` to `coaches`.
 - [ ] **Opening hours.** `05:00–22:00` daily is sourced from Justdial, not from the owner.
       Confirm before launch — it is published in the structured data.
-- [ ] **Photography.** `public/images/` currently holds low-resolution captures of the signage.
-      `signage-street.png` carries a visible Google copyright watermark and is **not used on any
-      page** — it is kept as reference only, and must not be published. Real interior photographs
-      (weights floor, cardio, CrossFit rig, ladies' area, reception) should replace the
-      placeholder tiles on `/gallery`.
+- [ ] **Photography.** The site currently ships **zero photographs** — the signage screenshots
+      were removed (they were low-resolution Google Street View captures, one carrying a visible
+      "© 2026 Google" watermark, so they were never safe to publish). The vector `SignagePanel`
+      stands in for the exterior. Real interior photographs — weights floor, cardio, CrossFit rig,
+      ladies' area, reception, a class in session — should replace the six placeholder tiles on
+      `/gallery`.

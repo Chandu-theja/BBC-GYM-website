@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { SignagePanel } from "@/components/SignagePanel";
 import { PageHeader } from "@/components/PageHeader";
 import { site } from "@/data/site";
 
@@ -10,24 +10,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/gallery" },
 };
 
-/**
- * Only one owner-supplied photograph is currently usable (see README —
- * the others are Street View captures carrying Google's watermark). Rather than
- * padding the page with stock imagery that isn't this gym, empty slots are shown
- * honestly until real interior photographs are supplied.
- */
-const photos = [
-  {
-    src: "/images/signage-wall.png",
-    alt: "The BBC Bouncers Gym signage wall listing Ladies & Gents, Zumba Dance, Aerobics and CrossFit",
-    caption: "The signage wall on Karakambadi Road",
-    width: 996,
-    height: 336,
-    wide: true,
-  },
+const pendingSlots = [
+  "Main weights floor",
+  "Cardio section",
+  "CrossFit rig",
+  "Ladies' batch area",
+  "Reception",
+  "Group class in session",
 ];
 
-const pendingSlots = ["Main weights floor", "Cardio section", "CrossFit rig", "Ladies' batch area", "Reception"];
 
 export default function GalleryPage() {
   return (
@@ -39,27 +30,9 @@ export default function GalleryPage() {
       />
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {photos.map((photo) => (
-            <figure
-              key={photo.src}
-              className={`overflow-hidden rounded-xl border border-ink-line bg-ink-raised ${
-                photo.wide ? "sm:col-span-2" : ""
-              }`}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                priority
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 700px"
-                className="w-full contrast-[1.15] saturate-[1.2]"
-              />
-              <figcaption className="px-5 py-3.5 text-sm text-smoke">{photo.caption}</figcaption>
-            </figure>
-          ))}
+        <SignagePanel className="mb-5" />
 
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {pendingSlots.map((label) => (
             <div
               key={label}
