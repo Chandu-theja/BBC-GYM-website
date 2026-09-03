@@ -178,7 +178,6 @@ export type Photo = { src: string; alt: string; caption: string };
 
 /** Slots shown while `photos` is empty, so the page states what is missing. */
 export const photoSlots = [
-  "Main weights floor",
   "Cardio section",
   "CrossFit rig",
   "Ladies' batch area",

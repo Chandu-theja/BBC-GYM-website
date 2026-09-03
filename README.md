@@ -55,6 +55,10 @@ can sit under the hero heading without repeating "Bouncers Gym" twice on one scr
 
 ## Photos
 
+`public/photos/01-main-weights-floor.jpg` was taken from the gym's own Google Maps listing at the
+owner's direction. **It shows identifiable members' faces** — fine while it is the gym's own
+publicly listed photo, but replace it if anyone in it objects.
+
 **To add photos: drop files in `public/photos/` and redeploy.** There is no code to edit —
 `src/lib/photos.ts` scans that folder at build time. Filename order controls sequence, and the
 caption is derived from the filename (`01-main-weights-floor.jpg` -> "Main weights floor").
@@ -150,8 +154,8 @@ These are deliberately visible in the UI rather than filled with invented values
       `src/data/site.ts` and flip `PRICES_CONFIRMED` to `true`.
 - [ ] **Junior coaches.** `/coaches` shows three dashed placeholder tiles. Add entries with
       `tier: "junior"` to `coaches`.
-- [ ] **Opening hours.** `05:00–22:00` daily is sourced from Justdial, not from the owner.
-      Confirm before launch — it is published in the structured data.
+- [x] **Opening hours.** `05:00–22:00` daily, corroborated against the Google Maps listing
+      ("Thursday, 5 am to 10 pm") as well as Justdial. Published in the structured data.
 - [ ] **Photography.** The site currently ships **zero photographs** — the signage screenshots
       were removed (they were low-resolution Google Street View captures, one carrying a visible
       "© 2026 Google" watermark, so they were never safe to publish). The vector `SignagePanel`

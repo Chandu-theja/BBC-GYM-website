@@ -26,6 +26,52 @@ export function PhotoMarquee({ photos, slots }: Props) {
 
   if (photos.length === 0) return <PhotoPlaceholders slots={slots} />;
 
+  // Below three photos a scroller would just repeat the same image across the
+  // viewport, which reads as broken rather than as a gallery. Show what exists
+  // in a grid beside the shots still missing, and start scrolling only once
+  // there is genuinely something to scroll through.
+  if (photos.length < 3) {
+    return (
+      <div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {photos.map((photo, i) => (
+            <button
+              key={photo.src}
+              type="button"
+              onClick={() => setOpen(i)}
+              className="group block w-full overflow-hidden rounded-xl border border-ink-line bg-ink-raised text-left transition-colors hover:border-brand-gold/50"
+            >
+              <span className="block aspect-4/3 overflow-hidden">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                />
+              </span>
+              <span className="block px-5 py-3.5 text-sm text-smoke">{photo.caption}</span>
+            </button>
+          ))}
+          {slots.slice(0, Math.max(0, 6 - photos.length)).map((label) => (
+            <div
+              key={label}
+              className="flex aspect-4/3 flex-col items-center justify-center rounded-xl border border-dashed border-ink-line bg-ink-raised/40 px-5 text-center"
+            >
+              <svg viewBox="0 0 24 24" className="h-8 w-8 fill-smoke/30" aria-hidden="true">
+                <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8.6l3.6-3.6 3 3L15 10l4 4V7H5Zm3.5 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+              </svg>
+              <p className="mt-3 text-sm font-medium text-smoke/70">{label}</p>
+              <p className="mt-1 text-xs text-smoke/50">Photo coming soon</p>
+            </div>
+          ))}
+        </div>
+        <Lightbox photos={photos} index={open} onClose={() => setOpen(null)} onIndexChange={setOpen} />
+      </div>
+    );
+  }
+
   // Repeat until there are enough tiles to cover a wide viewport, then double
   // that for the seamless loop.
   const minTiles = 6;
