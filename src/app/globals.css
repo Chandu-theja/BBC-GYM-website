@@ -21,6 +21,10 @@
   --color-gym-green: #00a050;
   --color-crossfit-blue: #3b6fb6;
 
+  /* Sampled from the BBC Fitness Centre logo artwork. */
+  --color-brand-gold: #cdac7d;
+  --color-brand-green: #2d513b;
+
   --font-display: var(--font-anton), "Arial Narrow", system-ui, sans-serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
 }

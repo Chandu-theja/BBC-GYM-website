@@ -25,8 +25,12 @@ export function Hero() {
         </p>
 
         <h1 className="display mt-6 text-[3.25rem] leading-[0.88] sm:text-8xl lg:text-[7.5rem]">
-          <span className="block text-steel">Bouncers</span>
-          <span className="block flame-text">Fitness Gym</span>
+          {/* Colour-matched to the entrance banner: BOUNCERS red, FITNESS orange, GYM white. */}
+          <span className="block text-flame-red">Bouncers</span>
+          <span className="block">
+            <span className="text-flame-orange">Fitness</span>{" "}
+            <span className="text-steel">Gym</span>
+          </span>
         </h1>
 
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-smoke sm:text-xl">

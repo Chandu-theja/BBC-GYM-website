@@ -6,7 +6,8 @@ import { ProgramCard } from "@/components/ProgramCard";
 import { CoachCard } from "@/components/CoachCard";
 import { PriceCard } from "@/components/PriceCard";
 import { MapEmbed } from "@/components/MapEmbed";
-import { site, fullAddress, programs, coaches, plans } from "@/data/site";
+import { PhotoGallery } from "@/components/PhotoGallery";
+import { site, fullAddress, programs, coaches, plans, photos, photoSlots } from "@/data/site";
 import { formatHour } from "@/components/Footer";
 
 export default function Home() {
@@ -104,6 +105,22 @@ export default function Home() {
           </div>
           <MapEmbed />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-24">
+        <SectionHeading
+          eyebrow="See the gym"
+          title="Have a look around."
+          lead="The floor, the equipment and the batches — before you walk in."
+        />
+        <div className="mt-10">
+          <PhotoGallery photos={photos} slots={photoSlots} limit={6} />
+        </div>
+        {photos.length > 6 && (
+          <Link href="/gallery" className="mt-8 inline-block font-semibold text-brand-gold hover:underline">
+            See every photo →
+          </Link>
+        )}
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-24">

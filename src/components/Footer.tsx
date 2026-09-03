@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BbcLogo } from "./BbcLogo";
+import { Logo } from "./Logo";
 import { site, fullAddress, programs } from "@/data/site";
 
 export function Footer() {
@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-ink-line bg-ink-raised">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:py-16">
         <div className="lg:col-span-1">
-          <BbcLogo className="h-24 w-auto text-steel" />
+          <Logo variant="lockup" className="h-auto w-56 max-w-full" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-smoke">
             Ladies &amp; gents fitness centre on Karakambadi Road, training Tirupati since day one.
           </p>

@@ -27,18 +27,40 @@ the only accent used for headings and primary buttons. Green, blue and yellow ap
 per-program category accents, which is exactly what the physical signage does. Adding these
 colours anywhere else breaks the system.
 
-The BBC mark lives in `src/components/BbcLogo.tsx` as vector, redrawn from the printed card so
-it stays crisp at any size. There is no bitmap logo asset anywhere in this repo.
+The logo is the owner-supplied **BBC Fitness Centre** artwork. The original file had its slate
+background baked in, which would have shown as a grey block against the site's near-black
+surfaces, so it was keyed out (rembg / birefnet-general) and trimmed to the artwork's own bounds.
+Two transparent assets are derived from it:
 
-The **letterforms are drawn paths, not `<text>`**. An earlier version set B-B-C in the display
-webfont, which meant the logo silently changed shape whenever that font failed to load. It now
-renders identically with no fonts available at all. Three variants: `glyph` (flame + triangle,
-for favicons and anything under ~40px), `mark`, and `lockup`. `src/app/icon.svg` is the glyph.
+- `public/brand/bbc-lockup.png` — the full badge, used in the footer
+- `public/brand/bbc-glyph.png` — the flame triangle alone, used in the header and as the favicon
+  (`src/app/icon.png`, `src/app/apple-icon.png`)
+
+Both are served through `src/components/Logo.tsx`. The logo's own gold and green are in the
+palette as `brand-gold` and `brand-green` so it sits in the page rather than on top of it.
+
+**Heading colours match the entrance banner**, not the logo: BOUNCERS red, FITNESS orange,
+GYM white — the same three colours painted on the wall, so the site and the building agree.
 
 `src/components/SignagePanel.tsx` is a typographic recreation of the signage wall on Karakambadi
-Road, replacing a low-resolution photograph of it. `variant="full"` reproduces the whole sign;
-`variant="disciplines"` drops the name so it can sit under the hero heading without repeating
-"Bouncers Gym" twice on one screen.
+Road. `variant="full"` reproduces the whole sign; `variant="disciplines"` drops the name so it
+can sit under the hero heading without repeating "Bouncers Gym" twice on one screen.
+
+## Photos
+
+`src/components/PhotoGallery.tsx` renders the grid and a keyboard-navigable lightbox (arrow keys,
+Escape, click-outside). It reads `photos` from `src/data/site.ts`:
+
+```ts
+export const photos: Photo[] = [
+  { src: "/photos/weights-floor.jpg", alt: "...", caption: "Main weights floor" },
+];
+```
+
+**To add photos:** drop the files in `public/photos/` and append entries to that array. Both the
+home-page "See the gym" section and `/gallery` switch out of their empty state automatically —
+no component changes needed. While the list is empty they show named placeholder slots and link
+to the gym's Google listing, which already carries real photographs.
 
 ## Business data
 

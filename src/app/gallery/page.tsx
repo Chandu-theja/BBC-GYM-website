@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SignagePanel } from "@/components/SignagePanel";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import { PageHeader } from "@/components/PageHeader";
-import { site } from "@/data/site";
+import { site, photos, photoSlots } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description: "Photos of BBC Bouncers Fitness Gym on Karakambadi Road, Akkarampalli, Tirupati.",
   alternates: { canonical: "/gallery" },
 };
-
-const pendingSlots = [
-  "Main weights floor",
-  "Cardio section",
-  "CrossFit rig",
-  "Ladies' batch area",
-  "Reception",
-  "Group class in session",
-];
-
 
 export default function GalleryPage() {
   return (
@@ -32,20 +23,7 @@ export default function GalleryPage() {
       <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
         <SignagePanel className="mb-5" />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {pendingSlots.map((label) => (
-            <div
-              key={label}
-              className="flex aspect-4/3 flex-col items-center justify-center rounded-xl border border-dashed border-ink-line bg-ink-raised/40 px-5 text-center"
-            >
-              <svg viewBox="0 0 24 24" className="h-8 w-8 fill-smoke/30" aria-hidden="true">
-                <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8.6l3.6-3.6 3 3L15 10l4 4V7H5Zm3.5 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
-              </svg>
-              <p className="mt-3 text-sm font-medium text-smoke/70">{label}</p>
-              <p className="mt-1 text-xs text-smoke/50">Photo coming soon</p>
-            </div>
-          ))}
-        </div>
+        <PhotoGallery photos={photos} slots={photoSlots} />
 
         <div className="mt-14 rounded-xl border border-ink-line bg-ink-raised p-7 text-center sm:p-9">
           <p className="text-smoke">

@@ -34,21 +34,12 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", fontSize: 24, letterSpacing: 8, color: "#8a8a8f", textTransform: "uppercase" }}>
           Akkarampalli · Tirupati
         </div>
-        <div style={{ display: "flex", marginTop: 24, fontSize: 116, fontWeight: 800, color: "#f2f2f0", lineHeight: 1 }}>
+        <div style={{ display: "flex", marginTop: 24, fontSize: 116, fontWeight: 800, color: "#E1251B", lineHeight: 1 }}>
           BOUNCERS
         </div>
-        <div
-          style={{
-            display: "flex",
-            fontSize: 116,
-            fontWeight: 800,
-            lineHeight: 1,
-            background: "linear-gradient(100deg,#E1251B,#F58220 52%,#FDB913)",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          FITNESS GYM
+        <div style={{ display: "flex", gap: 24, fontSize: 116, fontWeight: 800, lineHeight: 1 }}>
+          <span style={{ color: "#F58220" }}>FITNESS</span>
+          <span style={{ color: "#f2f2f0" }}>GYM</span>
         </div>
         <div style={{ display: "flex", marginTop: 36, fontSize: 30, color: "#8a8a8f" }}>
           {`${site.rating.value} / 5 rating · ${site.rating.count} reviews · ${site.phoneDisplay}`}

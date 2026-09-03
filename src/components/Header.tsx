@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BbcLogo } from "./BbcLogo";
+import { Logo } from "./Logo";
 import { site } from "@/data/site";
 
 const nav = [
@@ -39,9 +39,9 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-20">
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} — home`}>
-          <BbcLogo variant="mark" className="h-10 w-auto text-steel sm:h-11" />
+          <Logo variant="glyph" priority className="h-10 w-auto sm:h-11" />
           <span className="hidden leading-none sm:block">
-            <span className="display block text-lg tracking-wide text-steel">Bouncers</span>
+            <span className="display block text-lg tracking-wide text-flame-red">Bouncers</span>
             <span className="block text-[0.62rem] uppercase tracking-[0.28em] text-smoke">Fitness Gym</span>
           </span>
         </Link>

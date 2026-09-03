@@ -167,3 +167,24 @@ export const plans: Plan[] = [
   },
   { name: "Annual", months: 12, price: null, perks: ["Everything in Half-Yearly", "Best value per month", "Priority batch booking", "Guest passes"] },
 ];
+
+export type Photo = { src: string; alt: string; caption: string };
+
+/**
+ * Gym photographs, newest first.
+ *
+ * To add one: drop the file in `public/photos/` and append an entry here. The
+ * gallery and the home-page strip both read from this list and switch out of
+ * their empty state automatically once it is non-empty.
+ */
+export const photos: Photo[] = [];
+
+/** Slots shown while `photos` is empty, so the page states what is missing. */
+export const photoSlots = [
+  "Main weights floor",
+  "Cardio section",
+  "CrossFit rig",
+  "Ladies' batch area",
+  "Reception",
+  "Group class in session",
+];
