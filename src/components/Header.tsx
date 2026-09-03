@@ -39,7 +39,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-20">
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} — home`}>
-          <Logo variant="glyph" priority className="h-10 w-auto sm:h-11" />
+          <Logo variant="badge" priority className="h-12 w-auto sm:h-14" />
           <span className="hidden leading-none sm:block">
             <span className="display block text-lg tracking-wide text-flame-red">Bouncers</span>
             <span className="block text-[0.62rem] uppercase tracking-[0.28em] text-smoke">Fitness Gym</span>
