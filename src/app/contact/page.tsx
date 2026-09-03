@@ -17,13 +17,13 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title={<>Leave your<br />number.</>}
-        lead="Tell us what you want to train for and we'll call you back with batch timings and current rates."
+        lead="Fill this in and it opens WhatsApp with your details already typed — press send and we'll reply with batch timings and current rates."
       />
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
         <div>
           <h2 className="display text-3xl text-steel">Membership enquiry</h2>
-          <p className="mt-3 text-smoke">Takes about thirty seconds. No payment details, no spam.</p>
+          <p className="mt-3 text-smoke">Thirty seconds, no typing it out twice. No payment details, no spam.</p>
           <div className="mt-8">
             <EnquiryForm />
           </div>

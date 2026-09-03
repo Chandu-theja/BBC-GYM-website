@@ -134,8 +134,8 @@ export default function Home() {
             First session is on us.
           </h2>
           <p className="relative mx-auto mt-4 max-w-lg text-smoke">
-            Come try the floor before you pay for anything. Leave your number and we&apos;ll call you back with
-            batch timings that fit your day.
+            Come try the floor before you pay for anything. Send us your details on WhatsApp and we&apos;ll
+            reply with batch timings that fit your day.
           </p>
           <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link

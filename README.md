@@ -96,13 +96,21 @@ Run `schema.sql` once against the database to create the `enquiries` table.
 
 ## Enquiry flow
 
-`/contact` → server action `submitEnquiry` (`src/app/actions.ts`) → zod validation → honeypot
-+ per-IP rate limit → insert into `enquiries`. Leads are read at **`/admin/enquiries`**.
+The form hands off to WhatsApp with every field already filled in, so the visitor never types
+their name and number twice.
 
-If the database is unreachable *for any reason*, the form does not simply error — it returns a
-prefilled WhatsApp link containing the visitor's details, so a lead is never silently dropped.
-Submitted values are echoed back into the form on any non-success state, because React 19
-resets uncontrolled inputs once a form action resolves.
+`src/components/EnquiryForm.tsx` keeps the fields in state and rebuilds a `wa.me` link on every
+keystroke. **The submit control is a real `<a href="https://wa.me/...">`, not a button that opens
+a window after awaiting something** — a popup opened after an `await` has lost its user-gesture
+context and gets blocked, whereas a plain link click never is. Enter-to-submit forwards to that
+same link so it stays inside the gesture.
+
+Alongside the click, the lead is POSTed to `src/app/api/enquiry/route.ts` fire-and-forget
+(`keepalive: true`), so the gym keeps a record even if the visitor never presses send in WhatsApp.
+That route validates with the shared schema in `src/lib/enquiry.ts`, rate-limits per IP, and
+**always returns 200** — recording a lead must never be able to delay or break the handoff. Stored
+leads are read at **`/admin/enquiries`**; with no `DATABASE_URL` it simply reports
+`{"stored": false, "reason": "no-database"}` and the WhatsApp handoff is unaffected.
 
 ## SEO
 
