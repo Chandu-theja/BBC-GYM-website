@@ -6,11 +6,14 @@ import { ProgramCard } from "@/components/ProgramCard";
 import { CoachCard } from "@/components/CoachCard";
 import { PriceCard } from "@/components/PriceCard";
 import { MapEmbed } from "@/components/MapEmbed";
-import { PhotoGallery } from "@/components/PhotoGallery";
-import { site, fullAddress, programs, coaches, plans, photos, photoSlots } from "@/data/site";
+import { PhotoMarquee } from "@/components/PhotoMarquee";
+import { site, fullAddress, programs, coaches, plans, photoSlots } from "@/data/site";
+import { getPhotos } from "@/lib/photos";
 import { formatHour } from "@/components/Footer";
 
 export default function Home() {
+  const photos = getPhotos();
+
   return (
     <>
       <Hero />
@@ -114,9 +117,9 @@ export default function Home() {
           lead="The floor, the equipment and the batches — before you walk in."
         />
         <div className="mt-10">
-          <PhotoGallery photos={photos} slots={photoSlots} limit={6} />
+          <PhotoMarquee photos={photos} slots={photoSlots} />
         </div>
-        {photos.length > 6 && (
+        {photos.length > 0 && (
           <Link href="/gallery" className="mt-8 inline-block font-semibold text-brand-gold hover:underline">
             See every photo →
           </Link>

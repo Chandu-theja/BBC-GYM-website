@@ -3,7 +3,8 @@ import Link from "next/link";
 import { SignagePanel } from "@/components/SignagePanel";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import { PageHeader } from "@/components/PageHeader";
-import { site, photos, photoSlots } from "@/data/site";
+import { site, photoSlots } from "@/data/site";
+import { getPhotos } from "@/lib/photos";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function GalleryPage() {
+  const photos = getPhotos();
+
   return (
     <>
       <PageHeader

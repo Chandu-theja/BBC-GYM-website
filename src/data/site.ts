@@ -171,13 +171,10 @@ export const plans: Plan[] = [
 export type Photo = { src: string; alt: string; caption: string };
 
 /**
- * Gym photographs, newest first.
- *
- * To add one: drop the file in `public/photos/` and append an entry here. The
- * gallery and the home-page strip both read from this list and switch out of
- * their empty state automatically once it is non-empty.
+ * Photos are not listed here — they are read from `public/photos/` at build time
+ * by `getPhotos()` in src/lib/photos.ts. Drop a file in that folder and it
+ * appears; there is nothing to edit.
  */
-export const photos: Photo[] = [];
 
 /** Slots shown while `photos` is empty, so the page states what is missing. */
 export const photoSlots = [

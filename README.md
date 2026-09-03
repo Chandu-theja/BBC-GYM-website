@@ -55,19 +55,21 @@ can sit under the hero heading without repeating "Bouncers Gym" twice on one scr
 
 ## Photos
 
-`src/components/PhotoGallery.tsx` renders the grid and a keyboard-navigable lightbox (arrow keys,
-Escape, click-outside). It reads `photos` from `src/data/site.ts`:
+**To add photos: drop files in `public/photos/` and redeploy.** There is no code to edit —
+`src/lib/photos.ts` scans that folder at build time. Filename order controls sequence, and the
+caption is derived from the filename (`01-main-weights-floor.jpg` -> "Main weights floor").
+`public/photos/README.md` has the full convention.
 
-```ts
-export const photos: Photo[] = [
-  { src: "/photos/weights-floor.jpg", alt: "...", caption: "Main weights floor" },
-];
-```
+- `src/components/PhotoMarquee.tsx` — the auto-scrolling strip in the home page's "Have a look
+  around" section. The track holds the list twice and translates exactly `-50%`, so the loop has
+  no visible seam. It pauses on hover, on keyboard focus, and via a visible pause button
+  (WCAG 2.2.2 requires motion over five seconds be stoppable), and does not animate at all under
+  `prefers-reduced-motion`.
+- `src/components/PhotoGallery.tsx` — the static grid on `/gallery`.
+- `src/components/Lightbox.tsx` — shared viewer: arrow keys, Escape, click-outside, wrapping.
 
-**To add photos:** drop the files in `public/photos/` and append entries to that array. Both the
-home-page "See the gym" section and `/gallery` switch out of their empty state automatically —
-no component changes needed. While the list is empty they show named placeholder slots and link
-to the gym's Google listing, which already carries real photographs.
+While the folder is empty both fall back to `PhotoPlaceholders`, which names the shots that are
+missing and links to the gym's Google listing.
 
 ## Business data
 
