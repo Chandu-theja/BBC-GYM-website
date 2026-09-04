@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Logo } from "./Logo";
 import { site } from "@/data/site";
 
 const nav = [
@@ -38,9 +37,11 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-20">
-        <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} — home`}>
-          <Logo variant="badge" priority className="h-12 w-auto sm:h-14" />
-          <span className="hidden leading-none sm:block">
+        {/* The banner above carries the logo mark, so the header carries the
+            name — otherwise the brand appears twice within one screen. The
+            wordmark still identifies the bar once it is stuck to the top. */}
+        <Link href="/" className="flex items-center" aria-label={`${site.name} — home`}>
+          <span className="leading-none">
             <span className="display block text-lg tracking-wide text-gold">Bouncers</span>
             <span className="block text-[0.62rem] uppercase tracking-[0.28em] text-muted">Fitness Gym</span>
           </span>
