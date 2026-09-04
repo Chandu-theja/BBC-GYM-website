@@ -40,7 +40,7 @@ export function SignagePanel({ className = "", variant = "full" }: Props) {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(120% 90% at 50% -20%, rgba(205,172,125,0.06), transparent 70%)" }}
+        style={{ background: "radial-gradient(120% 90% at 50% -20%, rgba(229,184,92,0.07), transparent 70%)" }}
       />
 
       {variant === "disciplines" ? (

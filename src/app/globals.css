@@ -24,8 +24,10 @@
   --color-bone: #e8e4dc;
   --color-muted: #8b9096;
 
-  --color-gold: #cdac7d;
-  --color-gold-dim: #97815c;
+  /* Sampled from the logo's gold highlights, not its mean. The average of a
+     metallic gradient lands on the muted middle and reads as beige. */
+  --color-gold: #e5b85c;
+  --color-gold-dim: #b8913f;
   --color-forest: #2d513b;
 
   --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;

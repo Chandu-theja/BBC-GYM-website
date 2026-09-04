@@ -27,7 +27,7 @@ export default function OpengraphImage() {
             left: 200,
             width: 900,
             height: 500,
-            background: "radial-gradient(closest-side, #cdac7d, transparent)",
+            background: "radial-gradient(closest-side, #e5b85c, transparent)",
             opacity: 0.14,
           }}
         />
@@ -38,8 +38,8 @@ export default function OpengraphImage() {
           BOUNCERS
         </div>
         <div style={{ display: "flex", gap: 24, fontSize: 116, fontWeight: 800, lineHeight: 1 }}>
-          <span style={{ color: "#cdac7d" }}>FITNESS</span>
-          <span style={{ color: "#cdac7d" }}>GYM</span>
+          <span style={{ color: "#e5b85c" }}>FITNESS</span>
+          <span style={{ color: "#e5b85c" }}>GYM</span>
         </div>
         <div style={{ display: "flex", marginTop: 36, fontSize: 30, color: "#8b9096" }}>
           {`${site.rating.value} / 5 rating · ${site.rating.count} reviews · ${site.phoneDisplay}`}

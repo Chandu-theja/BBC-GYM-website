@@ -14,7 +14,7 @@ Four colours, taken from the logo rather than from the painted signage wall.
 |---|---|---|
 | `ink` / `ink-raised` / `ink-line` | `#0F1011` / `#16181A` / `#23262A` | ground, surfaces, hairlines |
 | `bone` | `#E8E4DC` | text — a warm off-white, softer than pure white |
-| `gold` | `#CDAC7D` | the single accent: primary actions, links, emphasis |
+| `gold` | `#E5B85C` | the single accent: primary actions, links, emphasis |
 | `forest` | `#2D513B` | used sparingly — confirmation states and the WhatsApp path |
 
 **The rule:** anything that needs to stand out uses gold. If a second accent seems necessary, the
