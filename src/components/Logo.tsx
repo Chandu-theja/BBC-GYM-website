@@ -9,7 +9,11 @@ type Props = {
    */
   variant?: Variant;
   className?: string;
-  priority?: boolean;
+  /**
+   * Load immediately at high priority. Next 16 deprecated `priority`, so this
+   * maps to loading/fetchPriority — passing `priority` here silently did nothing.
+   */
+  eager?: boolean;
 };
 
 const ASSETS: Record<Variant, { src: string; width: number; height: number; sizes: string }> = {
@@ -26,7 +30,7 @@ const ASSETS: Record<Variant, { src: string; width: number; height: number; size
  * the tile band, so it showed a bare gold triangle with no "BBC" in it at all.
  * `badge` keeps the tiles, which is what makes the mark recognisable.
  */
-export function Logo({ variant = "lockup", className, priority = false }: Props) {
+export function Logo({ variant = "lockup", className, eager = false }: Props) {
   const a = ASSETS[variant];
   return (
     <Image
@@ -34,7 +38,8 @@ export function Logo({ variant = "lockup", className, priority = false }: Props)
       width={a.width}
       height={a.height}
       sizes={a.sizes}
-      priority={priority}
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : "auto"}
       alt="BBC Fitness Centre"
       className={className}
     />

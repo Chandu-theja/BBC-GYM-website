@@ -13,7 +13,7 @@ export function BrandBanner() {
     <div className="border-b border-ink-line bg-ink-raised/30">
       <div className="mx-auto flex max-w-6xl items-center justify-center px-5 py-7 sm:py-9">
         <Link href="/" aria-label="BBC Bouncers Fitness Gym — home" className="block">
-          <Logo variant="lockup" priority className="h-auto w-56 sm:w-72" />
+          <Logo variant="lockup" eager className="h-auto w-56 sm:w-72" />
         </Link>
       </div>
     </div>
