@@ -22,8 +22,8 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-24">
         <SectionHeading
           eyebrow="What we run"
-          title={<>Every discipline<br />on the wall.</>}
-          lead="The signage outside isn't decoration — each of those colours is a program running on the floor this week."
+          title={<>Every discipline,<br />one membership.</>}
+          lead="Strength, conditioning, dance and cardio — all coached on the floor, all included."
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {programs.slice(0, 6).map((p) => (
@@ -32,7 +32,7 @@ export default function Home() {
         </div>
         <Link
           href="/programs"
-          className="mt-8 inline-block font-semibold text-flame-amber hover:underline"
+          className="mt-8 inline-block font-semibold text-gold hover:underline"
         >
           See all programs in detail →
         </Link>
@@ -50,7 +50,7 @@ export default function Home() {
               <CoachCard key={c.name} coach={c} />
             ))}
           </div>
-          <Link href="/coaches" className="mt-8 inline-block font-semibold text-flame-amber hover:underline">
+          <Link href="/coaches" className="mt-8 inline-block font-semibold text-gold hover:underline">
             Meet the full coaching team →
           </Link>
         </div>
@@ -79,19 +79,19 @@ export default function Home() {
             />
             <dl className="mt-8 space-y-5">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-smoke">Address</dt>
-                <dd className="mt-1.5 text-steel">{fullAddress}</dd>
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Address</dt>
+                <dd className="mt-1.5 text-bone">{fullAddress}</dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-smoke">Hours</dt>
-                <dd className="mt-1.5 text-steel">
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Hours</dt>
+                <dd className="mt-1.5 text-bone">
                   {formatHour(site.hours.opens)} – {formatHour(site.hours.closes)} · {site.hours.note}
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-smoke">Phone</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Phone</dt>
                 <dd className="mt-1.5">
-                  <a href={`tel:${site.phone}`} className="text-lg font-bold text-signal-yellow hover:underline">
+                  <a href={`tel:${site.phone}`} className="text-lg font-bold text-gold hover:underline">
                     {site.phoneDisplay}
                   </a>
                 </dd>
@@ -101,7 +101,7 @@ export default function Home() {
               href={site.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-block rounded-full border border-ink-line px-7 py-3 font-semibold text-steel transition-colors hover:border-smoke/50"
+              className="mt-8 inline-block rounded-full border border-ink-line px-7 py-3 font-semibold text-bone transition-colors hover:border-muted/50"
             >
               Open in Google Maps
             </a>
@@ -120,36 +120,31 @@ export default function Home() {
           <PhotoMarquee photos={photos} slots={photoSlots} />
         </div>
         {photos.length > 0 && (
-          <Link href="/gallery" className="mt-8 inline-block font-semibold text-brand-gold hover:underline">
+          <Link href="/gallery" className="mt-8 inline-block font-semibold text-gold hover:underline">
             See every photo →
           </Link>
         )}
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-24">
-        <div className="relative overflow-hidden rounded-2xl border border-flame-orange/30 bg-ink-raised px-6 py-14 text-center sm:px-12">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 -top-24 mx-auto h-64 w-[600px] opacity-20 blur-[80px]"
-            style={{ background: "radial-gradient(closest-side, #F58220, transparent)" }}
-          />
-          <h2 className="display relative text-4xl text-steel sm:text-5xl">
+        <div className="relative overflow-hidden rounded-2xl border border-gold/30 bg-ink-raised px-6 py-14 text-center sm:px-12">
+          <h2 className="display relative text-4xl text-bone sm:text-5xl">
             First session is on us.
           </h2>
-          <p className="relative mx-auto mt-4 max-w-lg text-smoke">
+          <p className="relative mx-auto mt-4 max-w-lg text-muted">
             Come try the floor before you pay for anything. Send us your details on WhatsApp and we&apos;ll
             reply with batch timings that fit your day.
           </p>
           <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/contact"
-              className="rounded-full flame-bg px-8 py-3.5 font-bold text-ink transition-transform hover:scale-[1.03]"
+              className="rounded-full bg-gold px-8 py-3.5 font-bold text-ink transition-colors hover:bg-gold/90"
             >
               Enquire about membership
             </Link>
             <a
               href={`tel:${site.phone}`}
-              className="rounded-full border border-ink-line px-8 py-3.5 font-semibold text-steel transition-colors hover:border-smoke/50"
+              className="rounded-full border border-ink-line px-8 py-3.5 font-semibold text-bone transition-colors hover:border-muted/50"
             >
               Call {site.phoneDisplay}
             </a>

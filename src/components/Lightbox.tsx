@@ -62,9 +62,9 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: Props) {
             sizes="92vw"
             className="max-h-[80vh] w-auto rounded-lg object-contain"
           />
-          <p className="mt-3 text-center text-sm text-smoke">
+          <p className="mt-3 text-center text-sm text-muted">
             {photo.caption}{" "}
-            <span className="text-smoke/60">
+            <span className="text-muted">
               ({index + 1} of {photos.length})
             </span>
           </p>
@@ -73,7 +73,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: Props) {
             type="button"
             onClick={onClose}
             aria-label="Close photo viewer"
-            className="absolute -top-3 right-0 flex h-10 w-10 items-center justify-center rounded-full bg-ink-raised text-steel"
+            className="absolute -top-3 right-0 flex h-10 w-10 items-center justify-center rounded-full bg-ink-raised text-bone"
           >
             ✕
           </button>
@@ -84,7 +84,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: Props) {
                 type="button"
                 onClick={() => step(-1)}
                 aria-label="Previous photo"
-                className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink/80 text-xl text-steel"
+                className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink/80 text-xl text-bone"
               >
                 ‹
               </button>
@@ -92,7 +92,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: Props) {
                 type="button"
                 onClick={() => step(1)}
                 aria-label="Next photo"
-                className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink/80 text-xl text-steel"
+                className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-ink/80 text-xl text-bone"
               >
                 ›
               </button>

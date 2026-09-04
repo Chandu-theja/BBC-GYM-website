@@ -50,17 +50,9 @@ export function whatsappLink(message: string) {
   return `https://wa.me/${site.phone.replace("+", "")}?text=${encodeURIComponent(message)}`;
 }
 
-/**
- * Program accent keys map to the colours used on the gym's own signage wall,
- * where each discipline is painted in its own colour. Keeping that mapping
- * intact is what makes the palette read as the brand rather than as decoration.
- */
-export type Accent = "red" | "orange" | "yellow" | "green" | "blue" | "steel";
-
 export type Program = {
   slug: string;
   name: string;
-  accent: Accent;
   summary: string;
   detail: string;
   points: string[];
@@ -70,7 +62,6 @@ export const programs: Program[] = [
   {
     slug: "gym-strength",
     name: "Gym & Strength",
-    accent: "red",
     summary: "Free weights, machines and a coached progression plan.",
     detail:
       "The main floor: barbells, dumbbells to heavy, plate-loaded machines and dedicated squat and bench stations. Every member gets a starting assessment and a written progression rather than a wander around the equipment.",
@@ -79,7 +70,6 @@ export const programs: Program[] = [
   {
     slug: "ladies-gents",
     name: "Ladies & Gents",
-    accent: "yellow",
     summary: "Separate batch timings so everyone trains comfortably.",
     detail:
       "Dedicated batch timings for women alongside general floor hours, with women coaches present during ladies' batches. Ask at the desk for the current batch schedule.",
@@ -88,7 +78,6 @@ export const programs: Program[] = [
   {
     slug: "crossfit",
     name: "CrossFit",
-    accent: "blue",
     summary: "Conditioning circuits built around barbell and bodyweight work.",
     detail:
       "Coached group conditioning — Olympic-style lifting, kettlebells, rowing, box work and bodyweight metcons, scaled to whatever you walk in with.",
@@ -97,7 +86,6 @@ export const programs: Program[] = [
   {
     slug: "aerobics",
     name: "Aerobics",
-    accent: "green",
     summary: "High-energy floor classes for stamina and fat loss.",
     detail:
       "Low-impact and high-intensity aerobic classes across the week, built for cardiovascular endurance and steady fat loss without hammering your joints.",
@@ -106,7 +94,6 @@ export const programs: Program[] = [
   {
     slug: "zumba-dance",
     name: "Zumba Dance",
-    accent: "orange",
     summary: "Dance fitness that doesn't feel like a workout.",
     detail:
       "Latin and Bollywood-mixed dance fitness. The most popular entry point for members who want to get fit without setting foot near a barbell on day one.",
@@ -115,7 +102,6 @@ export const programs: Program[] = [
   {
     slug: "cardio",
     name: "Cardio Floor",
-    accent: "steel",
     summary: "Treadmills, cycles and cross-trainers with open access.",
     detail:
       "Open-access cardio equipment available through all operating hours — treadmills, upright and recumbent cycles, cross-trainers and rowers.",
@@ -124,7 +110,6 @@ export const programs: Program[] = [
   {
     slug: "personal-training",
     name: "Personal Training",
-    accent: "red",
     summary: "One-to-one coaching with a senior coach.",
     detail:
       "One-to-one blocks with a senior coach covering programming, technique correction and nutrition guidance, built around your specific goal and schedule.",

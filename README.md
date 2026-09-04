@@ -8,50 +8,35 @@ Next.js 16 (App Router) · TypeScript · Tailwind v4 · Neon Postgres · deploye
 
 ## Brand
 
-The palette is taken from the gym's own materials — the printed BBC logo card and the painted
-signage wall on Karakambadi Road, where each discipline is lettered in its own colour.
+Four colours, taken from the logo rather than from the painted signage wall.
 
-| Token | Hex | Where it comes from |
+| Token | Hex | Role |
 |---|---|---|
-| `ink` | `#0B0B0C` | the signage black |
-| `steel` | `#F2F2F0` | the "GYM" lettering |
-| `flame-red` | `#E1251B` | logo triangle, "BOUNCERS" |
-| `flame-orange` | `#F58220` | flame body, "FITNESS" |
-| `flame-amber` | `#FDB913` | flame tip |
-| `signal-yellow` | `#FFD100` | "LADIES & GENTS", the phone number |
-| `gym-green` | `#00A050` | logo "B" tile, "AEROBICS" |
-| `crossfit-blue` | `#3B6FB6` | "CROSSFIT" |
+| `ink` / `ink-raised` / `ink-line` | `#0F1011` / `#16181A` / `#23262A` | ground, surfaces, hairlines |
+| `bone` | `#E8E4DC` | text — a warm off-white, softer than pure white |
+| `gold` | `#CDAC7D` | the single accent: primary actions, links, emphasis |
+| `forest` | `#2D513B` | used sparingly — confirmation states and the WhatsApp path |
 
-**The rule:** ink and steel carry ~90% of every surface. The red→orange→amber flame gradient is
-the only accent used for headings and primary buttons. Green, blue and yellow appear *only* as
-per-program category accents, which is exactly what the physical signage does. Adding these
-colours anywhere else breaks the system.
+**The rule:** anything that needs to stand out uses gold. If a second accent seems necessary, the
+answer is almost always more space, not another colour. `forest` is a *fill* colour — as text on a
+dark ground it fails contrast, so links use gold.
 
-The logo is the owner-supplied **BBC Fitness Centre** artwork. The original file had its slate
-background baked in, which would have shown as a grey block against the site's near-black
-surfaces, so it was keyed out (rembg / birefnet-general) and trimmed to the artwork's own bounds.
-Two transparent assets are derived from it:
+The site previously ran the signage wall's per-discipline palette — red, orange, amber, yellow,
+green and blue at full saturation. That is the right call on a forty-foot sign competing with a
+main road and the wrong one on a screen, where six hues at once read as noise rather than energy.
+Program cards, the discipline strip and the stat bar now share one treatment and differentiate by
+type and spacing.
 
-- `public/brand/bbc-lockup.png` — the full badge with dumbbells, used in the footer
-- `public/brand/bbc-badge.png` — triangle + flame + **BBC tiles**, used in the header and as the
-  favicon (`src/app/icon.png`, `src/app/apple-icon.png`)
+Display type is **Outfit** at weight 500 in sentence case. The previous heavy condensed all-caps
+face was doing a lot of shouting; the same hierarchy comes from size and spacing without it.
+Body text is **Inter**. Both are self-hosted via `next/font`.
 
-**The crop matters.** A first attempt cut the header mark above the tile band, which left a bare
-gold triangle carrying no "BBC" at all — at 44px it read as an anonymous pointed shape. The tile
-band sits at y 680–957 of the trimmed artwork; any header or favicon crop has to include it.
-Favicon options were compared as actual 16/32/48px renders before picking: the flame alone blurs,
-the tiles alone lose the flame, the badge survives 32px (the effective size on a retina tab) and
-matches the header, so the tab and the site agree.
+Contrast is verified across every page with a script that converts Tailwind v4's `oklab()` output
+to linear sRGB — a naive parser silently reports nonsense for any colour carrying an opacity
+modifier, which is most of them. Currently zero failures against WCAG AA.
 
-Both are served through `src/components/Logo.tsx`. The logo's own gold and green are in the
-palette as `brand-gold` and `brand-green` so it sits in the page rather than on top of it.
-
-**Heading colours match the entrance banner**, not the logo: BOUNCERS red, FITNESS orange,
-GYM white — the same three colours painted on the wall, so the site and the building agree.
-
-`src/components/SignagePanel.tsx` is a typographic recreation of the signage wall on Karakambadi
-Road. `variant="full"` reproduces the whole sign; `variant="disciplines"` drops the name so it
-can sit under the hero heading without repeating "Bouncers Gym" twice on one screen.
+The logo assets are in `public/brand/` and served through `src/components/Logo.tsx`; see
+`public/photos/README.md` for photos.
 
 ## Photos
 

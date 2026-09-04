@@ -41,8 +41,8 @@ export function Header() {
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} — home`}>
           <Logo variant="badge" priority className="h-12 w-auto sm:h-14" />
           <span className="hidden leading-none sm:block">
-            <span className="display block text-lg tracking-wide text-flame-red">Bouncers</span>
-            <span className="block text-[0.62rem] uppercase tracking-[0.28em] text-smoke">Fitness Gym</span>
+            <span className="display block text-lg tracking-wide text-gold">Bouncers</span>
+            <span className="block text-[0.62rem] uppercase tracking-[0.28em] text-muted">Fitness Gym</span>
           </span>
         </Link>
 
@@ -55,7 +55,7 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={`text-sm font-medium transition-colors ${
-                  active ? "text-flame-amber" : "text-smoke hover:text-steel"
+                  active ? "text-gold" : "text-muted hover:text-bone"
                 }`}
               >
                 {item.label}
@@ -67,7 +67,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={`tel:${site.phone}`}
-            className="hidden rounded-full flame-bg px-5 py-2.5 text-sm font-bold text-ink transition-transform hover:scale-[1.03] sm:inline-block"
+            className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-ink transition-colors hover:bg-gold/90 sm:inline-block"
           >
             Call {site.phoneDisplay}
           </a>
@@ -77,7 +77,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink-line text-steel lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink-line text-bone lg:hidden"
           >
             <span className="relative block h-3.5 w-5">
               <span
@@ -110,7 +110,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="border-b border-ink-line py-3.5 text-base font-medium text-steel last:border-0"
+              className="border-b border-ink-line py-3.5 text-base font-medium text-bone last:border-0"
             >
               {item.label}
             </Link>
@@ -118,7 +118,7 @@ export function Header() {
         </nav>
         <a
           href={`tel:${site.phone}`}
-          className="mt-5 block rounded-full flame-bg py-3 text-center font-bold text-ink"
+          className="mt-5 block rounded-full bg-gold py-3 text-center font-bold text-ink"
         >
           Call {site.phoneDisplay}
         </a>

@@ -10,7 +10,7 @@ const EMPTY = { name: "", phone: "", program: "", goal: "", message: "", website
 type Values = typeof EMPTY;
 
 const fieldBase =
-  "w-full rounded-lg border bg-ink px-4 py-3 text-steel placeholder:text-smoke/60 focus:border-flame-orange focus:outline-none";
+  "w-full rounded-lg border bg-ink px-4 py-3 text-bone placeholder:text-muted focus:border-gold focus:outline-none";
 
 /**
  * Enquiry form that hands off to WhatsApp with everything already filled in.
@@ -66,9 +66,9 @@ export function EnquiryForm() {
 
   if (sent) {
     return (
-      <div className="rounded-xl border border-gym-green/40 bg-gym-green/10 p-8 text-center">
-        <h3 className="display text-3xl text-steel">WhatsApp is open.</h3>
-        <p className="mt-3 text-smoke">
+      <div className="rounded-xl border border-forest/40 bg-forest/10 p-8 text-center">
+        <h3 className="display text-3xl text-bone">WhatsApp is open.</h3>
+        <p className="mt-3 text-muted">
           Your details are already typed in — just press send and we&apos;ll reply.
         </p>
         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
@@ -76,13 +76,13 @@ export function EnquiryForm() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-white"
+            className="rounded-full bg-forest px-6 py-3 text-sm font-bold text-white"
           >
             Didn&apos;t open? Tap here
           </a>
           <a
             href={`tel:${site.phone}`}
-            className="rounded-full border border-ink-line px-6 py-3 text-sm font-semibold text-steel hover:border-smoke/50"
+            className="rounded-full border border-ink-line px-6 py-3 text-sm font-semibold text-bone hover:border-muted/50"
           >
             Or call {site.phoneDisplay}
           </a>
@@ -93,7 +93,7 @@ export function EnquiryForm() {
             setValues(EMPTY);
             setSent(false);
           }}
-          className="mt-6 text-sm text-smoke underline hover:text-steel"
+          className="mt-6 text-sm text-muted underline hover:text-bone"
         >
           Send another enquiry
         </button>
@@ -120,7 +120,7 @@ export function EnquiryForm() {
             onChange={set("name")}
             autoComplete="name"
             placeholder="Full name"
-            className={`${fieldBase} ${errors.name ? "border-flame-red" : "border-ink-line"}`}
+            className={`${fieldBase} ${errors.name ? "border-gold" : "border-ink-line"}`}
           />
         </Field>
         <Field label="Mobile number" name="phone" error={errors.phone}>
@@ -133,7 +133,7 @@ export function EnquiryForm() {
             onChange={set("phone")}
             autoComplete="tel"
             placeholder="10-digit number"
-            className={`${fieldBase} ${errors.phone ? "border-flame-red" : "border-ink-line"}`}
+            className={`${fieldBase} ${errors.phone ? "border-gold" : "border-ink-line"}`}
           />
         </Field>
       </div>
@@ -185,7 +185,7 @@ export function EnquiryForm() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleSubmitClick}
-        className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 font-bold text-white transition-transform hover:scale-[1.01]"
+        className="flex w-full items-center justify-center gap-2.5 rounded-full bg-forest py-3.5 font-bold text-white transition-colors hover:bg-gold/90"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
           <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.29-.02-.45.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35ZM12.04 21.5h-.01a9.44 9.44 0 0 1-4.8-1.32l-.35-.2-3.57.93.96-3.48-.23-.36a9.4 9.4 0 0 1-1.44-5.03c0-5.2 4.24-9.44 9.45-9.44a9.4 9.4 0 0 1 6.67 2.77 9.36 9.36 0 0 1 2.76 6.68c0 5.2-4.24 9.45-9.44 9.45ZM20.5 3.49A11.8 11.8 0 0 0 12.04 0C5.5 0 .2 5.31.2 11.84c0 2.09.55 4.13 1.59 5.93L.1 24l6.37-1.67a11.8 11.8 0 0 0 5.66 1.44h.01c6.53 0 11.84-5.31 11.84-11.84 0-3.16-1.23-6.14-3.47-8.38Z" />
@@ -193,7 +193,7 @@ export function EnquiryForm() {
         Send on WhatsApp
       </a>
 
-      <p className="text-center text-xs text-smoke">
+      <p className="text-center text-xs text-muted">
         Opens WhatsApp with your details already filled in — you just press send.
       </p>
     </form>
@@ -213,12 +213,12 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-steel/85">
+      <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-bone/85">
         {label}
       </label>
       {children}
       {error && (
-        <p role="alert" className="mt-1.5 text-xs text-flame-red">
+        <p role="alert" className="mt-1.5 text-xs text-gold">
           {error}
         </p>
       )}

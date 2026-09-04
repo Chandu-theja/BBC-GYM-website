@@ -22,8 +22,8 @@ export default function ContactPage() {
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
         <div>
-          <h2 className="display text-3xl text-steel">Membership enquiry</h2>
-          <p className="mt-3 text-smoke">Thirty seconds, no typing it out twice. No payment details, no spam.</p>
+          <h2 className="display text-3xl text-bone">Membership enquiry</h2>
+          <p className="mt-3 text-muted">Thirty seconds, no typing it out twice. No payment details, no spam.</p>
           <div className="mt-8">
             <EnquiryForm />
           </div>
@@ -31,39 +31,39 @@ export default function ContactPage() {
 
         <aside className="space-y-8">
           <div className="rounded-xl border border-ink-line bg-ink-raised p-7">
-            <h2 className="display text-2xl text-steel">Reach us directly</h2>
+            <h2 className="display text-2xl text-bone">Reach us directly</h2>
             <dl className="mt-6 space-y-5 text-sm">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-smoke">Phone</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Phone</dt>
                 <dd className="mt-1.5">
-                  <a href={`tel:${site.phone}`} className="text-xl font-bold text-signal-yellow hover:underline">
+                  <a href={`tel:${site.phone}`} className="text-xl font-bold text-gold hover:underline">
                     {site.phoneDisplay}
                   </a>
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-smoke">WhatsApp</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">WhatsApp</dt>
                 <dd className="mt-1.5">
                   <a
                     href={whatsappLink(`Hi ${site.shortName}, I'd like to know about membership plans and batch timings.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-[#25D366] hover:underline"
+                    className="font-semibold text-gold hover:underline"
                   >
                     Start a chat →
                   </a>
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-smoke">Address</dt>
-                <dd className="mt-1.5 text-steel/85">{fullAddress}</dd>
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Address</dt>
+                <dd className="mt-1.5 text-bone/85">{fullAddress}</dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-smoke">Hours</dt>
-                <dd className="mt-1.5 text-steel/85">
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Hours</dt>
+                <dd className="mt-1.5 text-bone/85">
                   {formatHour(site.hours.opens)} – {formatHour(site.hours.closes)}
                   <br />
-                  <span className="text-smoke">{site.hours.note}</span>
+                  <span className="text-muted">{site.hours.note}</span>
                 </dd>
               </div>
             </dl>

@@ -39,7 +39,7 @@ export function PhotoMarquee({ photos, slots }: Props) {
               key={photo.src}
               type="button"
               onClick={() => setOpen(i)}
-              className="group block w-full overflow-hidden rounded-xl border border-ink-line bg-ink-raised text-left transition-colors hover:border-brand-gold/50"
+              className="group block w-full overflow-hidden rounded-xl border border-ink-line bg-ink-raised text-left transition-colors hover:border-gold/50"
             >
               <span className="block aspect-4/3 overflow-hidden">
                 <Image
@@ -51,7 +51,7 @@ export function PhotoMarquee({ photos, slots }: Props) {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
               </span>
-              <span className="block px-5 py-3.5 text-sm text-smoke">{photo.caption}</span>
+              <span className="block px-5 py-3.5 text-sm text-muted">{photo.caption}</span>
             </button>
           ))}
           {slots.slice(0, Math.max(0, 6 - photos.length)).map((label) => (
@@ -59,11 +59,11 @@ export function PhotoMarquee({ photos, slots }: Props) {
               key={label}
               className="flex aspect-4/3 flex-col items-center justify-center rounded-xl border border-dashed border-ink-line bg-ink-raised/40 px-5 text-center"
             >
-              <svg viewBox="0 0 24 24" className="h-8 w-8 fill-smoke/30" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-8 w-8 fill-muted/30" aria-hidden="true">
                 <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8.6l3.6-3.6 3 3L15 10l4 4V7H5Zm3.5 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
               </svg>
-              <p className="mt-3 text-sm font-medium text-smoke/70">{label}</p>
-              <p className="mt-1 text-xs text-smoke/50">Photo coming soon</p>
+              <p className="mt-3 text-sm font-medium text-muted">{label}</p>
+              <p className="mt-1 text-xs text-muted">Photo coming soon</p>
             </div>
           ))}
         </div>
@@ -116,7 +116,7 @@ export function PhotoMarquee({ photos, slots }: Props) {
                 // The duplicated half is decorative; only the first copy is reachable.
                 tabIndex={i < base.length ? 0 : -1}
                 aria-hidden={i < base.length ? undefined : true}
-                className="group/tile block w-full overflow-hidden rounded-xl border border-ink-line bg-ink-raised text-left transition-colors hover:border-brand-gold/50"
+                className="group/tile block w-full overflow-hidden rounded-xl border border-ink-line bg-ink-raised text-left transition-colors hover:border-gold/50"
               >
                 <span className="block aspect-4/3 overflow-hidden">
                   <Image
@@ -128,7 +128,7 @@ export function PhotoMarquee({ photos, slots }: Props) {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover/tile:scale-[1.05]"
                   />
                 </span>
-                <span className="block px-4 py-3 text-xs text-smoke">{photo.caption}</span>
+                <span className="block px-4 py-3 text-xs text-muted">{photo.caption}</span>
               </button>
             </li>
           ))}
@@ -140,7 +140,7 @@ export function PhotoMarquee({ photos, slots }: Props) {
           type="button"
           onClick={() => setPaused((v) => !v)}
           aria-pressed={paused}
-          className="rounded-full border border-ink-line px-4 py-2 text-xs font-medium text-smoke transition-colors hover:border-smoke/50 hover:text-steel"
+          className="rounded-full border border-ink-line px-4 py-2 text-xs font-medium text-muted transition-colors hover:border-muted/50 hover:text-bone"
         >
           {paused ? "▶ Resume scrolling" : "❙❙ Pause scrolling"}
         </button>

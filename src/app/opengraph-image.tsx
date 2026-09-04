@@ -15,7 +15,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          background: "#0b0b0c",
+          background: "#0f1011",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
@@ -27,21 +27,21 @@ export default function OpengraphImage() {
             left: 200,
             width: 900,
             height: 500,
-            background: "radial-gradient(closest-side, #F58220, transparent)",
-            opacity: 0.28,
+            background: "radial-gradient(closest-side, #cdac7d, transparent)",
+            opacity: 0.14,
           }}
         />
-        <div style={{ display: "flex", fontSize: 24, letterSpacing: 8, color: "#8a8a8f", textTransform: "uppercase" }}>
+        <div style={{ display: "flex", fontSize: 24, letterSpacing: 8, color: "#8b9096", textTransform: "uppercase" }}>
           Akkarampalli · Tirupati
         </div>
-        <div style={{ display: "flex", marginTop: 24, fontSize: 116, fontWeight: 800, color: "#E1251B", lineHeight: 1 }}>
+        <div style={{ display: "flex", marginTop: 24, fontSize: 116, fontWeight: 800, color: "#e8e4dc", lineHeight: 1 }}>
           BOUNCERS
         </div>
         <div style={{ display: "flex", gap: 24, fontSize: 116, fontWeight: 800, lineHeight: 1 }}>
-          <span style={{ color: "#F58220" }}>FITNESS</span>
-          <span style={{ color: "#f2f2f0" }}>GYM</span>
+          <span style={{ color: "#cdac7d" }}>FITNESS</span>
+          <span style={{ color: "#cdac7d" }}>GYM</span>
         </div>
-        <div style={{ display: "flex", marginTop: 36, fontSize: 30, color: "#8a8a8f" }}>
+        <div style={{ display: "flex", marginTop: 36, fontSize: 30, color: "#8b9096" }}>
           {`${site.rating.value} / 5 rating · ${site.rating.count} reviews · ${site.phoneDisplay}`}
         </div>
       </div>

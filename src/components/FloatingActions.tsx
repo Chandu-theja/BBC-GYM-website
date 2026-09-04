@@ -15,7 +15,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp"
-        className="flex h-13 w-13 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-black/40 transition-transform hover:scale-105"
+        className="flex h-13 w-13 items-center justify-center rounded-full bg-forest shadow-lg shadow-black/40 transition-colors"
         style={{ height: "3.25rem", width: "3.25rem" }}
       >
         <svg viewBox="0 0 24 24" className="h-7 w-7 fill-white" aria-hidden="true">
@@ -25,7 +25,7 @@ export function FloatingActions() {
       <a
         href={`tel:${site.phone}`}
         aria-label={`Call ${site.name} on ${site.phoneDisplay}`}
-        className="flex items-center justify-center rounded-full flame-bg shadow-lg shadow-black/40 transition-transform hover:scale-105"
+        className="flex items-center justify-center rounded-full bg-gold shadow-lg shadow-black/40 transition-colors"
         style={{ height: "3.25rem", width: "3.25rem" }}
       >
         <svg viewBox="0 0 24 24" className="h-6 w-6 fill-ink" aria-hidden="true">

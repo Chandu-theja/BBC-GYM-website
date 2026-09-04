@@ -22,9 +22,9 @@ export default function PricingPage() {
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
         {!PRICES_CONFIRMED && (
-          <p className="mb-10 rounded-lg border border-signal-yellow/40 bg-signal-yellow/10 px-5 py-4 text-sm text-steel">
+          <p className="mb-10 rounded-lg border border-gold/40 bg-gold/10 px-5 py-4 text-sm text-bone">
             <strong className="font-semibold">Current rates are confirmed at the desk.</strong> Call{" "}
-            <a href={`tel:${site.phone}`} className="font-semibold text-signal-yellow hover:underline">
+            <a href={`tel:${site.phone}`} className="font-semibold text-gold hover:underline">
               {site.phoneDisplay}
             </a>{" "}
             or drop in — we&apos;ll walk you through what each plan includes.
@@ -40,7 +40,7 @@ export default function PricingPage() {
         </div>
 
         <div className="mt-14 rounded-xl border border-ink-line bg-ink-raised p-7 sm:p-9">
-          <h2 className="display text-2xl text-steel">Included in every plan</h2>
+          <h2 className="display text-2xl text-bone">Included in every plan</h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
               "Full free-weight and machine floor",
@@ -50,13 +50,13 @@ export default function PricingPage() {
               "Locker and changing area",
               "Coach on the floor at all hours",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-sm text-steel/85">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-flame-orange" aria-hidden="true" />
+              <li key={item} className="flex items-start gap-2.5 text-sm text-bone/85">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
                 {item}
               </li>
             ))}
           </ul>
-          <Link href="/contact" className="mt-7 inline-block font-semibold text-flame-amber hover:underline">
+          <Link href="/contact" className="mt-7 inline-block font-semibold text-gold hover:underline">
             Ask about a free trial session →
           </Link>
         </div>

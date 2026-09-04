@@ -16,8 +16,8 @@ export function StatsBar() {
           <div key={s.label} className="bg-ink-raised px-5 py-7 text-center sm:py-9">
             <dt className="sr-only">{s.label}</dt>
             <dd>
-              <span className="display block text-xl text-steel sm:text-2xl">{s.value}</span>
-              <span className="mt-1.5 block text-[0.7rem] leading-snug text-smoke sm:text-xs">{s.label}</span>
+              <span className="display block text-xl text-bone sm:text-2xl">{s.value}</span>
+              <span className="mt-1.5 block text-[0.7rem] leading-snug text-muted sm:text-xs">{s.label}</span>
             </dd>
           </div>
         ))}

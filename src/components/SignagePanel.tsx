@@ -1,9 +1,4 @@
-const disciplines = [
-  { label: "Ladies & Gents", className: "text-signal-yellow" },
-  { label: "Zumba Dance", className: "text-steel" },
-  { label: "Aerobics", className: "text-gym-green" },
-  { label: "CrossFit", className: "text-crossfit-blue" },
-];
+const disciplines = ["Ladies & Gents", "Zumba Dance", "Aerobics", "CrossFit"];
 
 /**
  * A typographic recreation of the gym's signage wall on Karakambadi Road.
@@ -45,19 +40,19 @@ export function SignagePanel({ className = "", variant = "full" }: Props) {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(120% 90% at 50% -20%, rgba(245,130,32,0.10), transparent 70%)" }}
+        style={{ background: "radial-gradient(120% 90% at 50% -20%, rgba(205,172,125,0.06), transparent 70%)" }}
       />
 
       {variant === "disciplines" ? (
         <div className="relative px-6 py-8 sm:px-10 sm:py-10">
           <ul className="flex flex-wrap items-baseline gap-x-8 gap-y-3 sm:gap-x-12">
-            {disciplines.map((d) => (
+            {disciplines.map((label) => (
               <li
-                key={d.label}
-                className={`display leading-none ${d.className}`}
-                style={{ fontSize: "clamp(1.5rem, 4.6vw, 2.75rem)" }}
+                key={label}
+                className="display leading-none text-bone"
+                style={{ fontSize: "clamp(1.25rem, 3.4vw, 2rem)" }}
               >
-                {d.label}
+                {label}
               </li>
             ))}
           </ul>
@@ -66,18 +61,15 @@ export function SignagePanel({ className = "", variant = "full" }: Props) {
       <div className="relative flex flex-col gap-6 px-6 py-9 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:px-10 sm:py-12">
         <div>
           <p
-            className="display leading-[0.82] text-flame-red"
-            style={{ fontSize: "clamp(2.75rem, 10vw, 6rem)" }}
+            className="display leading-[0.9] text-bone"
+            style={{ fontSize: "clamp(2.25rem, 7vw, 4.25rem)" }}
           >
             Bouncers
           </p>
           <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
-            {disciplines.map((d) => (
-              <li
-                key={d.label}
-                className={`display text-[0.78rem] tracking-[0.06em] sm:text-base ${d.className}`}
-              >
-                {d.label}
+            {disciplines.map((label) => (
+              <li key={label} className="text-[0.78rem] tracking-[0.14em] uppercase text-muted sm:text-sm">
+                {label}
               </li>
             ))}
           </ul>
@@ -85,14 +77,14 @@ export function SignagePanel({ className = "", variant = "full" }: Props) {
 
         <div className="sm:text-right">
           <p
-            className="display leading-[0.82] text-steel"
-            style={{ fontSize: "clamp(2.75rem, 10vw, 6rem)" }}
+            className="display leading-[0.9] text-bone"
+            style={{ fontSize: "clamp(2.25rem, 7vw, 4.25rem)" }}
           >
             Gym
           </p>
           <p
-            className="display leading-[0.9] text-flame-orange"
-            style={{ fontSize: "clamp(1.5rem, 5vw, 2.75rem)" }}
+            className="display leading-[0.9] text-gold"
+            style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)" }}
           >
             Fitness
           </p>

@@ -9,8 +9,8 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
     <html lang="en-IN">
       <body
         style={{
-          background: "#0b0b0c",
-          color: "#f2f2f0",
+          background: "#0f1011",
+          color: "#e8e4dc",
           fontFamily: "system-ui, sans-serif",
           display: "flex",
           minHeight: "100vh",
@@ -23,9 +23,9 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
       >
         <div>
           <h1 style={{ fontSize: "1.75rem", margin: 0 }}>BBC Bouncers Fitness Gym</h1>
-          <p style={{ color: "#8a8a8f", marginTop: "0.75rem" }}>
+          <p style={{ color: "#8b9096", marginTop: "0.75rem" }}>
             The site hit an error. Please call us on{" "}
-            <a href="tel:+919494776969" style={{ color: "#ffd100", fontWeight: 700 }}>
+            <a href="tel:+919494776969" style={{ color: "#cdac7d", fontWeight: 700 }}>
               94947 76969
             </a>
             .
@@ -38,8 +38,8 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
               padding: "0.75rem 1.75rem",
               borderRadius: 999,
               border: 0,
-              background: "linear-gradient(100deg,#E1251B,#F58220 52%,#FDB913)",
-              color: "#0b0b0c",
+              background: "#cdac7d",
+              color: "#0f1011",
               fontWeight: 700,
               cursor: "pointer",
             }}

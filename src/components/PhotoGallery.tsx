@@ -31,7 +31,7 @@ export function PhotoGallery({ photos, slots, limit }: Props) {
             <button
               type="button"
               onClick={() => setOpen(i)}
-              className="group block w-full overflow-hidden rounded-xl border border-ink-line bg-ink-raised text-left transition-colors hover:border-brand-gold/50"
+              className="group block w-full overflow-hidden rounded-xl border border-ink-line bg-ink-raised text-left transition-colors hover:border-gold/50"
             >
               <span className="block aspect-4/3 overflow-hidden">
                 <Image
@@ -43,7 +43,7 @@ export function PhotoGallery({ photos, slots, limit }: Props) {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
               </span>
-              <span className="block px-5 py-3.5 text-sm text-smoke">{photo.caption}</span>
+              <span className="block px-5 py-3.5 text-sm text-muted">{photo.caption}</span>
             </button>
           </li>
         ))}

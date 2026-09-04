@@ -29,16 +29,16 @@ export default function GalleryPage() {
         <PhotoGallery photos={photos} slots={photoSlots} />
 
         <div className="mt-14 rounded-xl border border-ink-line bg-ink-raised p-7 text-center sm:p-9">
-          <p className="text-smoke">
+          <p className="text-muted">
             Want to see the floor in person before joining? Walk in any day, or call{" "}
-            <a href={`tel:${site.phone}`} className="font-semibold text-signal-yellow hover:underline">
+            <a href={`tel:${site.phone}`} className="font-semibold text-gold hover:underline">
               {site.phoneDisplay}
             </a>
             .
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-block rounded-full flame-bg px-8 py-3 font-bold text-ink transition-transform hover:scale-[1.03]"
+            className="mt-6 inline-block rounded-full bg-gold px-8 py-3 font-bold text-ink transition-colors hover:bg-gold/90"
           >
             Book a free trial
           </Link>
