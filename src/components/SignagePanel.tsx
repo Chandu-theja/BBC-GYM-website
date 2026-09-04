@@ -11,7 +11,7 @@ type Props = {
   className?: string;
   /**
    * "full" reproduces the whole sign, name included — right for the gallery.
-   * "disciplines" drops the name and shows only the colour-coded programs, so it
+   * "disciplines" drops the name and shows only the program list, so it
    * can sit under the hero heading without saying "Bouncers Gym" twice.
    */
   variant?: "full" | "disciplines";
@@ -49,7 +49,7 @@ export function SignagePanel({ className = "", variant = "full" }: Props) {
             {disciplines.map((label) => (
               <li
                 key={label}
-                className="display leading-none text-bone"
+                className="display leading-none text-gold"
                 style={{ fontSize: "clamp(1.25rem, 3.4vw, 2rem)" }}
               >
                 {label}
@@ -68,7 +68,7 @@ export function SignagePanel({ className = "", variant = "full" }: Props) {
           </p>
           <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
             {disciplines.map((label) => (
-              <li key={label} className="text-[0.78rem] tracking-[0.14em] uppercase text-muted sm:text-sm">
+              <li key={label} className="text-[0.78rem] tracking-[0.14em] uppercase text-gold sm:text-sm">
                 {label}
               </li>
             ))}
